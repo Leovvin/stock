@@ -27,23 +27,25 @@ public class DealingRecordServiceImpl implements DealingRecordService {
     @Transactional
     public List<DealingRecord> findAllDealingRecord() {
         List<DealingRecordEntity> recordEntities = dealingRecordRepository.findAll();
-        return recordEntities.stream().map(map()).collect(Collectors.toList());
+        return recordEntities.stream().map(entity2Pojo).collect(Collectors.toList());
     }
 
-    private static Function<DealingRecordEntity,DealingRecord> map(){
-        return e->{
+    Function<DealingRecordEntity,DealingRecord> entity2Pojo = e->{
             Stock stock = Stock.builder().code(e.getStockCode())
                     .build();
             BigDecimal incomePrice = new BigDecimal(e.getIncomePrice());
+            long coefficient = (long) (incomePrice.floatValue()*Math.pow(10,incomePrice.scale()));
             Money incomePriceMoney = Money.builder()
-                    .coefficient(incomePrice.longValue())
-                    .exponent(incomePrice.scale())
+                    .coefficient(coefficient)
+                    .exponent(0-incomePrice.scale())
                     .build();
+
             DealingRecord dealingRecord = DealingRecord.builder()
                     .stock(stock)
                     .incomePrice(incomePriceMoney)
+                    .incomeTime(e.getIncomeTime())
                     .build();
             return dealingRecord;
-        };
-    }
+    };
+
 }
