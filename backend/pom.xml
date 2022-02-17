@@ -4,6 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.3</version>
+        <relativePath/>
+    </parent>
+
     <groupId>org.willingfish</groupId>
     <artifactId>stock-parent</artifactId>
     <packaging>pom</packaging>
@@ -16,18 +23,14 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <spring.boot.version>2.5.6.RELEASE</spring.boot.version>
+        <spring.boot.version>2.6.3</spring.boot.version>
     </properties>
 
+    <dependencies>
+
+    </dependencies>
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.5.6</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
             <dependency>
                 <groupId>org.willingfish</groupId>
                 <artifactId>stock-common</artifactId>
@@ -35,4 +38,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 </project>
