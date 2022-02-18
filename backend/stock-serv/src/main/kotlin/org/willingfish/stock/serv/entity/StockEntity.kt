@@ -13,4 +13,6 @@ data class StockEntity(
         val name:String?,
         val createTime:Date?,
         val updateTime:Date?
-)
+){
+    constructor():this(null,null,null,null)
+}

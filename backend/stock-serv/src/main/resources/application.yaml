@@ -5,3 +5,7 @@ spring:
     password: stock
   jpa:
     show-sql: true
+  r2dbc:
+    url: r2dbc:mysql://192.168.3.18:3306/stock
+    username: stock
+    password: stock

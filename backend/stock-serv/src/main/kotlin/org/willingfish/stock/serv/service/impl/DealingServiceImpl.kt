@@ -1,5 +1,6 @@
 package org.willingfish.stock.serv.service.impl
 
+import com.google.common.collect.Lists
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
@@ -14,8 +15,8 @@ import kotlin.math.pow
 
 @Component
 class DealingServiceImpl: DealingService {
-    @Autowired
-    lateinit var jdbcTemplate: JdbcTemplate
+//    @Autowired
+//    lateinit var jdbcTemplate: JdbcTemplate
 
     val rowMapper:RowMapper<DealingRecord> = RowMapper{
         rs, rowNum -> DealingRecord(
@@ -30,7 +31,8 @@ class DealingServiceImpl: DealingService {
 
     @Transactional
     override fun findAllDealingRecord(): List<DealingRecord> {
-        return jdbcTemplate.query("select dr.DEALING_RECORD_ID,dr.STOCK_CODE,s.NAME,dr.INCOME_PRICE,dr.OUTCOME_PRICE,dr.INCOME_TIME,dr.OUTCOME_TIME from dealing_record dr left join stock s on dr.STOCK_CODE = s.STOCK_CODE", rowMapper)
+//        return jdbcTemplate.query("select dr.DEALING_RECORD_ID,dr.STOCK_CODE,s.NAME,dr.INCOME_PRICE,dr.OUTCOME_PRICE,dr.INCOME_TIME,dr.OUTCOME_TIME from dealing_record dr left join stock s on dr.STOCK_CODE = s.STOCK_CODE", rowMapper)
+        return Lists.newArrayList()
     }
 
     fun stringToMoney(price:String?): Money? {

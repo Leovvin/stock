@@ -34,6 +34,10 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-r2dbc</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-kotlin</artifactId>
         </dependency>
@@ -54,6 +58,12 @@
             <artifactId>kotlinx-coroutines-reactor</artifactId>
         </dependency>
 
+        <!-- a R2DBC driver -->
+        <dependency>
+            <groupId>dev.miku</groupId>
+            <artifactId>r2dbc-mysql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
@@ -73,6 +83,16 @@
             <artifactId>stock-common</artifactId>
         </dependency>
     </dependencies>
+
+
+    <repositories>
+        <repository>
+            <id>spring-milestone</id>
+            <name>Spring Maven MILESTONE Repository</name>
+            <url>https://repo.spring.io/libs-milestone</url>
+        </repository>
+    </repositories>
+
 
     <build>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
