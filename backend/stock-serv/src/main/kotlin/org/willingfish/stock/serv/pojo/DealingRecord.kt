@@ -5,7 +5,7 @@ import org.willingfish.stock.common.pojo.Money
 import org.willingfish.stock.common.pojo.Stock
 import java.time.LocalDate
 
-class DealingRecord(
+data class DealingRecord(
         val id: Long?,
         val stock: Stock?=null,
         val incomePrice:Money?=null,
