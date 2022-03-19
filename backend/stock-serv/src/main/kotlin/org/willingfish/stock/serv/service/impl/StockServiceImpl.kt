@@ -18,9 +18,7 @@ class StockServiceImpl: StockService {
         return r2dbcTemplate.databaseClient.sql("select * from stock").map(mapper()).all()
     }
 
-
     fun mapper(): (Row)-> Stock {
-
         return {r-> Stock(
                 r.get("STOCK_CODE").toString(),
                 r.get("NAME").toString()) }

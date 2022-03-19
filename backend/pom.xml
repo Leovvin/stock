@@ -27,7 +27,16 @@
     </properties>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.14.0</version>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -36,13 +45,6 @@
                 <artifactId>stock-common</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>io.r2dbc</groupId>-->
-<!--                <artifactId>r2dbc-bom</artifactId>-->
-<!--                <version>${r2dbc-releasetrain.version}</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
         </dependencies>
 
     </dependencyManagement>
